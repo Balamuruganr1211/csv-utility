@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Result</title><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<h2>Result: {{ result_sentence }}</h2>
+{{ table|safe }}
+<div class="button-row">
+    <a href="/?filename={{ filename }}">Back</a>
+    <a href="/download/{{ file }}">Download Result CSV</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head><title>CSV Preview</title><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<h2>First 3 Rows of {{ filename }}</h2>
+{{ table|safe }}
+<div class="button-row">
+    <a href="/?filename={{ filename }}">Back</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head><title>CSV Utility</title><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<h2>Upload CSV File</h2>
+<form action="/" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".csv" required>
+    <button type="submit">Upload</button>
+</form>
+{% if uploaded %}
+<h3>File Uploaded: {{ filename }}</h3>
+<a href="/display/{{ filename }}">Preview</a>
+<hr>
+
+<h3>Operations</h3>
+
+<form action="/filter" method="POST">
+    <input type="hidden" name="filename" value="{{ filename }}">
+    <label>Filter by Column:</label>
+    <select name="column">
+        {% for col in columns %}
+        <option value="{{ col }}">{{ col }}</option>
+        {% endfor %}
+    </select>
+    <select name="operator">
+        <option value=">">></option>
+        <option value="<"><</option>
+        <option value="==">==</option>
+        <option value="contains">contains</option>
+    </select>
+    <input name="value" placeholder="Value" required>
+    <button>Filter</button>
+</form>
+
+<form action="/sort" method="POST">
+    <input type="hidden" name="filename" value="{{ filename }}">
+    <label>Sort by Column:</label>
+    <select name="column">
+        {% for col in columns %}
+        <option value="{{ col }}">{{ col }}</option>
+        {% endfor %}
+    </select>
+    <select name="order">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+    </select>
+    <button>Sort</button>
+</form>
+
+<form action="/aggregate" method="POST">
+    <input type="hidden" name="filename" value="{{ filename }}">
+    <label>Aggregate Column (numeric only):</label>
+    <select name="column">
+        {% for col in numeric_columns %}
+        <option value="{{ col }}">{{ col }}</option>
+        {% endfor %}
+    </select>
+    <select name="operation">
+        <option value="sum">Sum</option>
+        <option value="avg">Average</option>
+        <option value="min">Min</option>
+        <option value="max">Max</option>
+    </select>
+    <button>Aggregate</button>
+</form>
+
+<form action="/palindromes" method="POST">
+    <input type="hidden" name="filename" value="{{ filename }}">
+    <label>Column for Palindromes:</label>
+    <select name="column">
+        {% for col in columns %}
+        <option value="{{ col }}">{{ col }}</option>
+        {% endfor %}
+    </select>
+    <button>Count Palindromes</button>
+</form>
+{% endif %}
+</body>
+</html>
