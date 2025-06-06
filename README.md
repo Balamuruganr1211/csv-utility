@@ -52,4 +52,4 @@ A simple Flask web application to upload and process CSV files with operations l
 
 ### Tests
 To run tests, use:
-    python -m unittest discover
+    - python -m unittest discover
