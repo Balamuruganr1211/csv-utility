@@ -57,9 +57,9 @@ To run tests, use:
 ### Screenshots
 ![image](https://github.com/user-attachments/assets/8dc8fe19-ffb3-4afd-84df-4d67f18b3e43)
 
-![image](https://github.com/user-attachments/assets/2811a4b7-9ce6-4133-b27e-0113d1c171ef)
-
 ![image](https://github.com/user-attachments/assets/9436d01e-345e-45c5-9d35-4d3e8759ac5a)
+
+![image](https://github.com/user-attachments/assets/2811a4b7-9ce6-4133-b27e-0113d1c171ef)
 
 ![image](https://github.com/user-attachments/assets/8896ec0c-1ef1-437f-a2d9-56ad12070e73)
 
@@ -67,11 +67,6 @@ To run tests, use:
 
 ![image](https://github.com/user-attachments/assets/a76ee877-50a3-414e-a84d-eb992caed27e)
 
-![image](https://github.com/user-attachments/assets/92696136-0ca8-414f-9324-3b0d4bffb8a6)
+![image](https://github.com/user-attachments/assets/d9eacdb0-31dd-4482-884a-fccdcd9870b5)
 
-![image](https://github.com/user-attachments/assets/30181b7a-992a-4b5a-ab02-0a69fea306f8)
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/6a18b51f-50d6-42c8-a5bd-5756e8aeddfe)
