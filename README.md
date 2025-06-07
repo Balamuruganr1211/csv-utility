@@ -31,7 +31,7 @@ A simple Flask web application to upload and process CSV files with operations l
    - Clone the repository and navigate into it.
    - docker build -t flask-csv-utility .
 
-2. docker run -p 5000:5000 flask-csv-utility -d (or) docker run -p 5000:5000 balamuruganram1211/csv-utility:latest -d
+2. docker run -p 5000:5000 -d flask-csv-utility (or) docker run -p 5000:5000 -d balamuruganram1211/csv-utility:latest
 
 3. Open your browser and go to http://localhost:5000
 
