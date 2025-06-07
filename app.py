@@ -53,7 +53,7 @@ def filter_csv():
         return f"Error: {e}"
     output_path = os.path.join(app.config['OUTPUT_FOLDER'], f"filtered_{filename}")
     util.write_to_csv(result_df, output_path)
-    return render_template('result.html', table=result_df.to_html(index=False), file=os.path.basename(output_path), filename=filename, result_sentence=f"Filtered Data({column}{op}{value})")
+    return render_template('result_table.html', title='Filtering', table=result_df.to_html(index=False), file=os.path.basename(output_path), filename=filename, result_sentence=f"Filtered Data({column} {op} {value})")
 
 @app.route('/sort', methods=['POST'])
 def sort_csv():
@@ -64,7 +64,7 @@ def sort_csv():
     result_df = util.sort_rows(column, ascending=order)
     output_path = os.path.join(app.config['OUTPUT_FOLDER'], f"sorted_{filename}")
     util.write_to_csv(result_df, output_path)
-    return render_template('result.html', table=result_df.to_html(index=False), file=os.path.basename(output_path), filename=filename, result_sentence=f"Sorted Data({column} {request.form['order'].capitalize()})")
+    return render_template('result_table.html', title='Sorting', table=result_df.to_html(index=False), file=os.path.basename(output_path), filename=filename, result_sentence=f"Sorted Data({column} {request.form['order'].capitalize()})")
 
 @app.route('/aggregate', methods=['POST'])
 def aggregate_csv():
@@ -73,7 +73,7 @@ def aggregate_csv():
     operation = request.form['operation']
     util = CSVUtility(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     result = util.aggregate_column(column, operation)
-    return f"{operation.capitalize()} of {column}: {result}"
+    return render_template('result.html', title='Aggregate', message=f"{operation.capitalize()} of {column}: {result}")
 
 @app.route('/palindromes', methods=['POST'])
 def palindrome_csv():
@@ -81,7 +81,7 @@ def palindrome_csv():
     column = request.form['column']
     util = CSVUtility(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     count = util.count_palindromes(column)
-    return f"Palindrome count in '{column}': {count}"
+    return render_template('result.html', title='Palindrome', message=f"Palindrome count in '{column}': {count}")
 
 @app.route('/download/<filename>')
 def download_file(filename):
